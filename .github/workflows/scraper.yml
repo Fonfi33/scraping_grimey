@@ -1,25 +1,27 @@
 name: Check Grimey Blog
 
 on:
-  workflow_dispatch:  # Habilita el botón "Run workflow"
+  workflow_dispatch:  # Permite ejecución manual
   schedule:
-    - cron: '0 12 * * *'  # Ejecuta el script todos los días a las 12:00 PM UTC
+    - cron: '0 12 * * *'  # Se ejecuta todos los días a las 12:00 PM UTC
 
 jobs:
-  scrape:
+  check_blog:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
+    - name: Checkout del repositorio
       uses: actions/checkout@v3
 
-    - name: Set up Python
+    - name: Configurar Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.10'
 
-    - name: Install dependencies
-      run: pip install requests-html
+    - name: Instalar dependencias
+      run: |
+        python -m pip install --upgrade pip
+        pip install selenium webdriver-manager beautifulsoup4
 
-    - name: Run script
+    - name: Ejecutar el script
       run: python check_Grimey_x_Palestina.py
