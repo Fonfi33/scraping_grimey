@@ -39,7 +39,7 @@ def check_grimey_blog():
     # Cerrar navegador
     driver.quit()
 
-print("✅ Navegador cerrado correctamente")
+    print("✅ Navegador cerrado correctamente")
         
     #     # Esperar a que Cloudflare cargue (10 segundos por seguridad)
     #     time.sleep(10)
