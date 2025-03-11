@@ -8,6 +8,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 # Función para revisar la web y verificar la entrada "Grimey x Palestina VI"
 def check_grimey_blog():
@@ -26,10 +28,14 @@ def check_grimey_blog():
     print("✅ Página cargada correctamente")
 
     # Buscar todos los h3 que contienen un anchor <a> con un span dentro
-    h3_elements = driver.find_elements(By.TAG_NAME, "h3")
-    
+    try:
+        h3_elements = WebDriverWait(driver, 10).until(
+            EC.presence_of_all_elements_located((By.TAG_NAME, "h3"))
+        )
     for h3 in h3_elements:
-        print(h3.text)
+        print(f"📌 Texto en h3: {h3.text}")
+except:
+    print("❌ No se encontraron elementos <h3>")
     
     # Cerrar navegador
     driver.quit()
