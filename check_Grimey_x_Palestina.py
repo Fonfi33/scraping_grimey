@@ -32,10 +32,10 @@ def check_grimey_blog():
         h3_elements = WebDriverWait(driver, 10).until(
             EC.presence_of_all_elements_located((By.TAG_NAME, "h3"))
         )
-    for h3 in h3_elements:
-        print(f"📌 Texto en h3: {h3.text}")
-except:
-    print("❌ No se encontraron elementos <h3>")
+        for h3 in h3_elements:
+            print(f"📌 Texto en h3: {h3.text}")
+    except:
+        print("❌ No se encontraron elementos <h3>")
     
     # Cerrar navegador
     driver.quit()
