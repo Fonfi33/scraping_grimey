@@ -38,7 +38,8 @@ for h3 in h3_elements:
 
 # Cerrar navegador
 driver.quit()
-    print("✅ Navegador cerrado correctamente")
+
+print("✅ Navegador cerrado correctamente")
         
     #     # Esperar a que Cloudflare cargue (10 segundos por seguridad)
     #     time.sleep(10)
