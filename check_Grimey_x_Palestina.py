@@ -13,17 +13,14 @@ from bs4 import BeautifulSoup
 def check_grimey_blog():
     print("🔍 Comprobando la web de Grimey...")
 
-    # Configurar opciones para modo headless
     options = Options()
-    options.add_argument("--headless")  # Modo sin interfaz gráfica
+    options.add_argument("--headless")  # ✅ Modo sin interfaz gráfica
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
 
-    # Configurar WebDriver remoto de Selenium Grid (sin usar ChromeDriver local)
-    selenium_grid_url = "http://selenium:4444/wd/hub"  # Servidor remoto en PythonAnywhere
-    driver = webdriver.Remote(command_executor=selenium_grid_url, options=options)
-    
-    # try:
+    service = Service(ChromeDriverManager().install())  # ✅ Instalar ChromeDriver automáticamente
+    driver = webdriver.Chrome(service=service, options=options)  # ✅ Ahora con modo headless
+
     url = "https://grimey.com/blog"
     driver.get(url)
     print("✅ Página cargada correctamente")
