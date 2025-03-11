@@ -25,9 +25,11 @@ def check_grimey_blog():
     driver.get(url)
     print("✅ Página cargada correctamente")
 
-    titles = driver.find_elements("tag name", "h3")
-    for title in titles:
-        print(f"📝 Título: {title.text}")
+    h3_elements = driver.find_elements(By.TAG_NAME, "h3")
+    for h3 in h3_elements:
+        spans = h3.find_elements(By.TAG_NAME, "span")  # Encuentra los <span> dentro del <h3>
+        for span in spans:
+            print(f"📌 Texto en span dentro de h3: {span.text}")
 
     driver.quit()
     print("✅ Navegador cerrado correctamente")
