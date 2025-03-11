@@ -1,6 +1,7 @@
 name: Check Grimey Blog
 
 on:
+  workflow_dispatch:  # Habilita el botón "Run workflow"
   schedule:
     - cron: '0 12 * * *'  # Ejecuta el script todos los días a las 12:00 PM UTC
 
