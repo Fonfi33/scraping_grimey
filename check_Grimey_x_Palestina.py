@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 
 # Función para revisar la web y verificar la entrada "Grimey x Palestina VI"
 def check_grimey_blog():
-    print("🔍 Comprobando la web de Grimey...")
+    # print("🔍 Comprobando la web de Grimey...")
 
     options = Options()
     options.add_argument("--headless")  # ✅ Modo sin interfaz gráfica
