@@ -25,13 +25,19 @@ def check_grimey_blog():
     driver.get(url)
     print("✅ Página cargada correctamente")
 
-    h3_elements = driver.find_elements(By.TAG_NAME, "h3")
-    for h3 in h3_elements:
-        spans = h3.find_elements(By.TAG_NAME, "span")  # Encuentra los <span> dentro del <h3>
-        for span in spans:
-            print(f"📌 Texto en span dentro de h3: {span.text}")
+    # Buscar todos los h3 que contienen un anchor <a> con un span dentro
+h3_elements = driver.find_elements(By.TAG_NAME, "h3")
 
-    driver.quit()
+for h3 in h3_elements:
+    try:
+        anchor = h3.find_element(By.TAG_NAME, "a")  # Encuentra el <a> dentro del <h3>
+        span = anchor.find_element(By.TAG_NAME, "span")  # Encuentra el <span> dentro del <a>
+        print(f"📌 Texto en span dentro de h3 > a: {span.text}")
+    except:
+        print("❌ No se encontró un <span> dentro del <a> en este <h3>.")
+
+# Cerrar navegador
+driver.quit()
     print("✅ Navegador cerrado correctamente")
         
     #     # Esperar a que Cloudflare cargue (10 segundos por seguridad)
