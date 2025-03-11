@@ -26,10 +26,10 @@ def check_grimey_blog():
     print("✅ Página cargada correctamente")
 
     # Buscar todos los h3 que contienen un anchor <a> con un span dentro
-    h2_elements = driver.find_elements(By.CLASS_NAME, "h2")
+    h3_elements = driver.find_elements(By.CLASS_NAME, "h3")
     
-    for h2 in h2_elements:
-        print(h2.text)
+    for h3 in h3_elements:
+        print(h3.text)
     
     # Cerrar navegador
     driver.quit()
