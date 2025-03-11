@@ -25,7 +25,7 @@ def check_grimey_blog():
     driver.get(url)
     print("✅ Página cargada correctamente")
 
-    titles = driver.find_elements("tag name", "h1")
+    titles = driver.find_elements("tag name", "h3")
     for title in titles:
         print(f"📝 Título: {title.text}")
 
