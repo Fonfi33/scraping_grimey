@@ -21,4 +21,4 @@ jobs:
       run: pip install requests-html
 
     - name: Run script
-      run: python check_grimey.py
+      run: python check_Grimey_x_Palestina.py
